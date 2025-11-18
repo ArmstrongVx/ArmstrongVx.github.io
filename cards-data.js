@@ -1,4 +1,5 @@
 export default [
+  { href: './html/Sticky Sorcerer/index.html', imgSrc: 'sticky sorcerer.png', name: 'Sticky Sorcerer' , 'page': 5, 'id': 979 },
   { href: './html/Supermarioplay/index.html', imgSrc: 'supermarioplay.jpeg', name: 'Supermarioplay' , 'page': 5, 'id': 981 },
   { href: './html/Survival Race/index.html', imgSrc: 'survival race.jpeg', name: 'Survival Race' , 'page': 5, 'id': 982 },
   { href: './html/Swords and sandals 2/index.html', imgSrc: 'swords and sandals 2.jpeg', name: 'Swords and sandals 2' , 'page': 5, 'id': 983 },
