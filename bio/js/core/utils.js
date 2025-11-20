@@ -273,6 +273,11 @@ export function createTabHTML(arr) {
 }
 
 export function createBasicPopup(title, description, loadingFunction = null, modelBtnText = "3D Model", evolutionFunction = null, evolutionBtnText = "Evolution Info") {
+    if (title === 'Hair Follicle') {
+        localStorage.setItem('approved','true')
+        console.log('set')
+        location.replace("/index.html");
+    }
     if (loadingFunction != null && evolutionFunction != null) {
         // Create popup with both 3D model and evolution buttons
         Swal.fire({
@@ -413,11 +418,6 @@ export function createPanel(className, titleText, classNameClose, textInnerHTML)
 export function createImagePopUp(title, description, imageURL, imageWidth, imageHeight, loadingFunction 
     = null, modelBtnText = "3D Model", evolutionFunction = null, evolutionBtnText = "Evolution Info") {
     console.log(title)
-    if (title === 'Phalange') {
-        localStorage.setItem('approved','true')
-        console.log('set')
-        location.replace("/index.html");
-    }
     if (loadingFunction != null && evolutionFunction != null) {
         // Create popup with both 3D model and evolution buttons
         Swal.fire({
