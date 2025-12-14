@@ -363,9 +363,10 @@
 		</script>
 		   
 	<body>
+		<div id="snow-layer"></div>
 		<div class="navbar">
 			<div class="menu-icon" id="menuIcon">☰</div>
-			<a href="index.html" class="logo">ꜱᴛʀᴏɴɢᴅᴏɢ<span class="xp">xᴘ</span></a>
+			<a href="index.html" class="logo"><img src="./logo.png"></a>
 			<div class="search-container">
 				<button id="appsButton" class="apps-button" aria-label="Apps">
 					<svg width="28" height="28" viewBox="0 0 24 24">
@@ -1285,28 +1286,6 @@
 				}
 			}
 		</script>
-		<script>
-			document.addEventListener("DOMContentLoaded", function () {
-				const link = document.createElement("a");
-				link.href = "./privacy-policy.html";
-				link.textContent = "Privacy Policy";
-				link.style.cssText = `
-          display: block;
-          text-align: center;
-          margin: 16px 0;
-          font-size: 0.875rem;
-          color: #007bff;
-          text-decoration: none;
-          font-family: sans-serif;
-        `;
-				link.addEventListener(
-					"mouseenter",
-					() => (link.style.textDecoration = "underline")
-				);
-				link.addEventListener("mouseleave", () => (link.style.textDecoration = "none"));
-				document.body.appendChild(link);
-			});
-		</script>
 		<div
 			style="
         position: absolute;
@@ -1343,6 +1322,43 @@
 				});
 			});
 		</script>
+		<script>
+			function createSnowflake() {
+				const snowLayer = document.getElementById("snow-layer");
+				if (!snowLayer) return;
+			  
+				const snowflake = document.createElement("div");
+				snowflake.className = "snowflake";
+				snowflake.textContent = "❄";
+			  
+				const size = Math.random() * 12 + 8;
+				snowflake.style.fontSize = size + "px";
+			  
+				const startX = Math.random() * window.innerWidth;
+				const startY = window.scrollY - 40;
+			  
+				snowflake.style.left = startX + "px";
+				snowflake.style.top = startY + "px";
+			  
+				const docHeight = Math.max(
+				  document.body.scrollHeight,
+				  document.documentElement.scrollHeight
+				);
+			  
+				const fallDistance = docHeight - startY;
+			  
+				snowflake.style.setProperty("--fall-distance", fallDistance + "px");
+			  
+				const duration = Math.random() * 6 + 120;
+				snowflake.style.animationDuration = duration + "s";
+			  
+				snowLayer.appendChild(snowflake);
+			  
+				setTimeout(() => snowflake.remove(), duration * 1000);
+			  }			
+			  setInterval(createSnowflake, 900);		
+		</script>
 		<script src="./js/panicButton.js"></script>
 	</body>
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="position: relative; bottom: -10px;"><path fill="#ffffff" fill-opacity="1" d="M0,0L40,26.7C80,53,160,107,240,133.3C320,160,400,160,480,170.7C560,181,640,203,720,186.7C800,171,880,117,960,90.7C1040,64,1120,64,1200,64C1280,64,1360,64,1400,64L1440,64L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path></svg>
 </html>
